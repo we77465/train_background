@@ -20,5 +20,5 @@ from . import views
 urlpatterns = [
     # 後方的 name 可以先忽略，目前不會用到
     path('', views.showtemplate, name="vendor_index"),
-    path('create', views.vendor_create_view), # 新增
+    #path('create', views.vendor_create_view), # 新增
 ]
