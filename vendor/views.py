@@ -24,8 +24,7 @@ def vendor_create_view(request):
     form = VendorForm(request.POST or None)
     if form.is_valid():
         form.save()
-        form = VendorForm() # 清空 form
-
+        form = VendorForm()
     context = {
         'form' : form
     }
