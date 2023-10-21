@@ -18,13 +18,14 @@ def showtemplate(request):
 
 
 from .forms import VendorForm # 要記得 import 相對應的 Model Form 唷!
+from .forms import RawVendorForm # 新增 RawVendorForm
 
-# 針對 vendor_create.html
+# 新增
 def vendor_create_view(request):
-    form = VendorForm(request.POST or None)
+    form = RawVendorForm(request.POST or None)
     if form.is_valid():
-        form.save()
-        form = VendorForm()
+        Vendor.objects.create(**form.cleaned_data) # 新增
+        form = RawVendorForm()
     context = {
         'form' : form
     }
